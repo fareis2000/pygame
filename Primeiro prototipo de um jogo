@@ -5,11 +5,24 @@ from random import randint
 
 pygame.init()
 
+
+#caso queira musicade fundo usar o script
+
+'''pygame.mixer.music.set_volume(0.1)
+musica_de_fundo = pygame.mixer.Sound('caminho para arquivo')
+pygame.mixer.play(-1)'''
+
+
+barulho_colisao = pygame.mixer.Sound('smw_coin.wav')
+#zerar volume da colisao
+#barulho_colisao.set_volume(0)
+
+
 largura = 700
 altura = 550
 
-x = largura / 2
-y = altura / 2
+x = int(largura / 2)
+y = int(altura / 2)
 
 x_azul = randint(40, 650)
 y_azul = randint(50, 500)
@@ -60,5 +73,6 @@ while True:
         x_azul = randint(40, 650)
         y_azul = randint(50, 500)
         pontos = pontos + 1
-    tela.blit(texto_format, (500,40))
+        barulho_colisao.play()
+    tela.blit(texto_format, (490,40))
     pygame.display.update()
